@@ -80,15 +80,6 @@ class Ciudad {
 
   async delete(id) {
     try {
-      // const categoriaRelacionada = await this.estaRelacionaConProductos(
-      //   categoria_id
-      // );
-
-      // if (categoriaRelacionada) {
-      //   throw new Error(
-      //     "No se puede eliminar la categoria con productos asociados"
-      //   );
-      // }
       const [result] = await connection.query(
         "DELETE FROM ciudadES WHERE id = ?",
         [id]

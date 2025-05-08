@@ -1,4 +1,3 @@
-CREATE DATABASE codeform_db;
 USE codeform_db;
 
 -- Tabla generos
@@ -42,3 +41,15 @@ CREATE TABLE lenguajes_usuarios (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
     FOREIGN KEY (id_lenguaje) REFERENCES lenguajes(id)
 );
+
+insert into ciudades(nombre) values ("Bucaramanga"), ("Girón"), ("Floridablanca");
+insert into generos(nombre) values ("Femenino"), ("Masculino");
+insert into lenguajes(nombre) values("HTML"), ("JavaScript"), ("CSS"), ("Java"), ("PHP"), ("SQL"), ("C#");
+
+select * from ciudades;
+select * from generos;
+select * from lenguajes;
+
+
+
+
