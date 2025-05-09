@@ -28,25 +28,25 @@ export const validarUsuario = (req, res, next) => {
   if (!documento || documento.trim() === "") {
     return res.status(400).json({ message: "El documento es obligatorio" });
   }
-  if (!documento || documento.trim() === "") {
+  if (!usuario || usuario.trim() === "") {
     return res
       .status(400)
       .json({ message: "El apodo del usuario es obligatorio" });
   }
-  if (!documento || documento.trim() === "") {
+  if (!contrasena || contrasena.trim() === "") {
     return res
       .status(400)
-      .json({ message: "El apodo del usuario es obligatorio" });
+      .json({ message: "La contrasena del usuario es obligatorio" });
   }
-  if (!documento || documento.trim() === "") {
+  if (!id_genero || id_genero.trim() === "") {
     return res
       .status(400)
-      .json({ message: "El apodo del usuario es obligatorio" });
+      .json({ message: "El id de genero del usuario es obligatorio" });
   }
-  if (!documento || documento.trim() === "") {
+  if (!id_ciudad || id_ciudad.trim() === "") {
     return res
       .status(400)
-      .json({ message: "El apodo del usuario es obligatorio" });
+      .json({ message: "El id de la ciudad del usuario es obligatorio" });
   }
 
   next();

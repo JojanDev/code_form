@@ -72,23 +72,50 @@ class Usuario {
     // );
   }
 
-  async update(id, nombre) {
+  async update(
+    id,
+    nombre,
+    apellido,
+    telefono,
+    documento,
+    usuarioI,
+    contrasena,
+    id_genero,
+    id_ciudad
+  ) {
     try {
       const [result] = await connection.query(
-        `update usuarios set nombre = ? where id = ?;`,
-        [nombre, id]
+        `update usuarios set nombre = ?, apellido = ?, telefono = ?, documento = ?, usuario = ?, contrasena = ?, id_genero = ?, id_ciudad = ? where id = ?;`,
+        [
+          nombre,
+          apellido,
+          telefono,
+          documento,
+          usuarioI,
+          contrasena,
+          id_genero,
+          id_ciudad,
+          id,
+        ]
       );
 
       if (result.affectedRows === 0) {
-        throw new Error("Ciudad no encontrada");
+        throw new Error("Usuario no encontrado");
       }
 
       return {
         id,
         nombre,
+        apellido,
+        telefono,
+        documento,
+        usuarioI,
+        contrasena,
+        id_genero,
+        id_ciudad,
       };
     } catch (error) {
-      throw new Error(error.message || "Error al actualizar la ciudad.");
+      throw new Error(error.message || "Error al actualizar el usuario.");
     }
   }
 
@@ -107,12 +134,12 @@ class Usuario {
 
       const [result] = await connection.query(consulta);
 
-      if (result.affectedRows === 0) throw new Error("Ciudad no encontrada");
+      if (result.affectedRows === 0) throw new Error("Usuario no encontrado");
 
       return { message: "Actualizado parcialmente!!!" };
     } catch (error) {
       throw new Error(
-        error.message || "Error al actualizar parcialmente la ciudad."
+        error.message || "Error al actualizar parcialmente el usuario."
       );
     }
   }
@@ -125,14 +152,14 @@ class Usuario {
       );
 
       if (result.affectedRows === 0) {
-        throw new Error("Ciudad no encontrada");
+        throw new Error("Usuario no encontrado");
       }
 
       return {
         error: "Eliminado correctamente",
       };
     } catch (error) {
-      throw new Error(error.message || "Error al eliminar la ciudad");
+      throw new Error(error.message || "Error al eliminar el usuario");
     }
   }
 }

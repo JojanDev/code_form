@@ -35,9 +35,9 @@ CREATE TABLE usuarios (
 
 -- Tabla lenguajes_usuarios con clave primaria compuesta
 CREATE TABLE lenguajes_usuarios (
+	  id INT auto_increment primary key,
     id_usuario INT,
     id_lenguaje INT,
-    PRIMARY KEY (id_usuario, id_lenguaje),
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
     FOREIGN KEY (id_lenguaje) REFERENCES lenguajes(id)
 );

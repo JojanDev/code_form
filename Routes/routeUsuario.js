@@ -1,18 +1,19 @@
 import express from "express";
 import UsuarioController from "../Controller/UsuarioController.js";
+import { validarUsuario } from "../Middleware/validarUsuario.js";
 
 const router = express.Router();
 
 // router.get("/", CiudadesController.getAllCategorias);
 
-// router.get("/:id", LenguajeController.getLenguajeByID);
+router.get("/:id", UsuarioController.getUsuarioByID);
 
-router.post("/", /*validarCategoria,*/ UsuarioController.createUsuario);
+router.post("/", validarUsuario, UsuarioController.createUsuario);
 
-// router.put("/:id", LenguajeController.updateLenguaje);
+router.put("/:id", validarUsuario, UsuarioController.updateUsuario);
 
-// router.patch("/:id", LenguajeController.patchLenguaje);
+router.patch("/:id", UsuarioController.patchUsuario);
 
-// router.delete("/:id", LenguajeController.deleteLenguaje);
+router.delete("/:id", UsuarioController.deleteUsuario);
 
 export default router;
