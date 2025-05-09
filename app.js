@@ -5,6 +5,9 @@ import routeGenero from "./Routes/routeGenero.js";
 import routeLenguaje from "./Routes/routeLenguaje.js";
 import routeUsuario from "./Routes/routeUsuario.js";
 import routeLenguajeUsuario from "./Routes/routeLenguajeUsuario.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
@@ -19,6 +22,8 @@ app.use("/usuario", routeUsuario);
 app.use("/lenguajeUsuario", routeLenguajeUsuario);
 // app.use("/productos", routeProductos);
 
-app.listen(3000, () => {
-  console.log("SERVER is running");
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });

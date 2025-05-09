@@ -4,8 +4,9 @@ import CiudadController from "../Controller/CiudadController.js";
 const router = express.Router();
 
 // router.get("/", CiudadesController.getAllCategorias);
+router.get("/", CiudadController.getAllCiudades);
 
-router.get("/:id", CiudadController.getCiudadByID);
+router.get("/:id", CiudadController.getCiudadById);
 
 router.post("/", /*validarCategoria,*/ CiudadController.createCiudad);
 

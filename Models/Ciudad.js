@@ -1,18 +1,29 @@
 import connection from "../Utils/db.js";
 
 class Ciudad {
+
+  async getAll() {
+    try {
+      const [rows] = await connection.query('SELECT * FROM ciudades;')
+      return rows;
+    } catch (error) {
+      throw new Error("Error al obtener las ciudades");
+    }
+  }
+
   async getByID(id) {
     try {
-      const [ciudad] = await connection.query(
+      const [rows] = await connection.query(
         "select * from ciudades where id = ?",
         [id]
       );
 
-      if (ciudad.length === 0) throw new Error("Ciudad no encontrada");
+      if (rows.length === 0)
+        return [];
 
-      return ciudad;
+      return rows;
     } catch (error) {
-      throw new Error(error.message || "Error al obtener la ciudad.");
+      throw new Error("Error al obtener la ciudad.");
     }
   }
 
